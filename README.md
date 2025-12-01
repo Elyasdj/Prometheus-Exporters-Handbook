@@ -60,7 +60,7 @@ sudo chmod 755 /usr/local/bin/postgres_exporter
 
 # Create PostgreSQL Exporter Config Path
 sudo mkdir -p /etc/postgres_exporter
-vim /etc/postgres_exporter/postgres_exporter.yml
+sudo vim /etc/postgres_exporter/postgres_exporter.yml
 
 # Create systemd service
 sudo vim /usr/lib/systemd/system/postgresql_exporter.service

@@ -1,18 +1,6 @@
 # 📊 Prometheus-Exporters-Handbook
 
-A comprehensive production-ready guide for deploying and configuring Prometheus monitoring infrastructure with exporters and Grafana visualization. - change to one line introduction of prometheus exporters
-
-[![Prometheus](https://img.shields.io/badge/Prometheus-v3.5.0-orange?logo=prometheus)](https://prometheus.io/) - change to postgresql v18
-
-- add postgresql_exporter v0.18.1
-
----
-
-## 📑 Table of Contents
-
-- add
-- add
-- add
+A comprehensive production-ready guide for deploying and configuring Prometheus exporters for PostgreSQL database monitoring.
 
 ---
 
@@ -35,12 +23,15 @@ Numerical measurements collected over time that represent the state and performa
 
 ## 🚀 Installation & Configuration
 
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v18-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![PostgreSQL Exporter](https://img.shields.io/badge/PostgreSQL_Exporter-v0.18.1-orange?logo=prometheus)](https://github.com/prometheus-community/postgres_exporter)
+
 ### 1. PostgreSQL Exporter
 
 **Default Port**: `9187`
 
 #### What is PostgreSQL Exporter?
-- add
+A Prometheus exporter that collects and exposes PostgreSQL database metrics including connection stats, query performance, replication status, and table statistics.
 
 #### Binary Installation Steps (RH/DEB)
 
@@ -50,17 +41,13 @@ wget https://github.com/prometheus-community/postgres_exporter/releases/download
 tar -xvf postgres_exporter-0.18.1.linux-amd64.tar.gz
 
 # Create user
-sudo useradd -rs /sbin/nologin pg_exporter
+sudo useradd -rs /sbin/nologin exporter
 
 # Install binary
 cd postgres_exporter-0.18.1.linux-amd64
 sudo mv postgres_exporter /usr/local/bin
-sudo chown pg_exporter. /usr/local/bin/postgres_exporter
+sudo chown exporter. /usr/local/bin/postgres_exporter
 sudo chmod 755 /usr/local/bin/postgres_exporter
-
-# Create PostgreSQL Exporter Config Path
-sudo mkdir -p /etc/postgres_exporter
-sudo vim /etc/postgres_exporter/postgres_exporter.yml
 
 # Create systemd service
 sudo vim /usr/lib/systemd/system/postgresql_exporter.service
@@ -89,10 +76,11 @@ sudo ss -tunpla | grep 9187
 curl http://localhost:9187/metrics
 ```
 
-#### Official Repo : https://github.com/prometheus-community/postgres_exporter?tab=readme-ov-file
+#### Official Repository
+📦 [prometheus-community/postgres_exporter](https://github.com/prometheus-community/postgres_exporter?tab=readme-ov-file)
 
 ---
 
 <div align="center">
-  <sub>Created by Elyasdj</sub>
+  <sub>Created with by Elyasdj</sub>
 </div>

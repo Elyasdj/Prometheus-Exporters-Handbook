@@ -3,7 +3,7 @@ auth_modules:
     type: userpass
     userpass:
       username: dbreader1
-      password: 1qaz!QAZ
+      password: 123456
     options:
       # options become key=value parameters of the DSN
       sslmode: disable

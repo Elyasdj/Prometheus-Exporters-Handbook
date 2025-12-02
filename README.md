@@ -51,7 +51,7 @@ sudo chmod 755 /usr/local/bin/postgres_exporter
 
 # Create systemd service
 sudo vim /usr/lib/systemd/system/postgresql_exporter.service
-# For Debian Distro Use This Path /lib/systemd/system/postgresql_exporter.service
+# For Debian Distro Use This Path /lib/systemd/system/postgre_exporter.service
 
 # Configure firewall
 sudo firewall-cmd --add-port=9187/tcp --permanent

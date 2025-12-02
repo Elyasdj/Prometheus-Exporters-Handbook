@@ -75,9 +75,12 @@ sudo ss -tunpla | grep 9187
 ```bash
 curl http://localhost:9187/metrics
 ```
+#### Grafana Dashboard
+📦 [Grafana/Dashboards](https://grafana.com/grafana/dashboards/9628-postgresql-database/)
+
 
 #### Official Repository
-📦 [prometheus-community/postgres_exporter](https://github.com/prometheus-community/postgres_exporter?tab=readme-ov-file)
+📦 [Prometheus/Postgres_Exporter](https://github.com/prometheus-community/postgres_exporter?tab=readme-ov-file)
 
 ---
 

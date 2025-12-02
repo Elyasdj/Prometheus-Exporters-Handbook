@@ -49,6 +49,10 @@ sudo mv postgres_exporter /usr/local/bin
 sudo chown pg_exporter. /usr/local/bin/postgres_exporter
 sudo chmod 755 /usr/local/bin/postgres_exporter
 
+# Create config path & config 
+sudo mkdir -p /etc/postgres_exporter
+sudo vim /etc/postgres_exporter/postgres_exporter.yml
+
 # Create systemd service
 sudo vim /usr/lib/systemd/system/postgre_exporter.service
 # For Debian Distro Use This Path /lib/systemd/system/postgre_exporter.service

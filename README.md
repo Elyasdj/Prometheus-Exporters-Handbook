@@ -59,7 +59,7 @@ sudo firewall-cmd --reload
 
 # Enable and start service
 sudo systemctl daemon-reload
-sudo systemctl enable --now postgres_exporter.service
+sudo systemctl enable --now postgre_exporter.service
 ```
 
 #### Verification

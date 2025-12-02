@@ -38,15 +38,15 @@ A Prometheus exporter that collects and exposes PostgreSQL database metrics incl
 ```bash
 # Download PostgreSQL Exporter
 wget https://github.com/prometheus-community/postgres_exporter/releases/download/v0.18.1/postgres_exporter-0.18.1.linux-amd64.tar.gz
-tar -xvf postgres_exporter-0.18.1.linux-amd64.tar.gz
+sudo tar -xvf postgres_exporter-0.18.1.linux-amd64.tar.gz
 
 # Create user
-sudo useradd -rs /sbin/nologin exporter
+sudo useradd -rs /sbin/nologin pg_exporter
 
 # Install binary
 cd postgres_exporter-0.18.1.linux-amd64
 sudo mv postgres_exporter /usr/local/bin
-sudo chown exporter. /usr/local/bin/postgres_exporter
+sudo chown pg_exporter. /usr/local/bin/postgres_exporter
 sudo chmod 755 /usr/local/bin/postgres_exporter
 
 # Create systemd service

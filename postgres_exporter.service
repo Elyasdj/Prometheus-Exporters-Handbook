@@ -4,8 +4,8 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-User=exporter
-Group=exporter
+User=pg_exporter
+Group=pg_exporter
 Type=simple
 Restart=on-failure
 RestartSec=5

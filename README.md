@@ -158,8 +158,10 @@ curl http://localhost:9308/metrics
 
 ### 💡 Notes
 
+> - Kafka Exporter is installed on a single server (not on all Kafka nodes) and only needs network access to all brokers.
 > - Kafka Exporter typically runs using flags in the unit file (no config file needed)
 > - Currently does not support KRaft mode (requires ZooKeeper)
+
 
 ---
 

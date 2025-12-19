@@ -128,8 +128,8 @@ sudo chown kafka_exporter. /usr/local/bin/kafka_exporter
 sudo chmod 755 /usr/local/bin/kafka_exporter
 
 # Create systemd service
-sudo vim /usr/lib/systemd/system/kafka_exporter.service
-# Debian: /lib/systemd/system/kafka_exporter.service
+sudo vim /usr/lib/systemd/system/kafka_exporter.v2.9.service
+# Debian: /lib/systemd/system/kafka_exporter.v2.9.service
 
 # Firewall
 sudo firewall-cmd --add-port=9308/tcp --permanent
@@ -137,13 +137,13 @@ sudo firewall-cmd --reload
 
 # Enable service
 sudo systemctl daemon-reload
-sudo systemctl enable --now kafka_exporter.service
+sudo systemctl enable --now kafka_exporter.v2.9.service
 ```
 
 ### Verification
 
 ```bash
-sudo systemctl status kafka_exporter.service
+sudo systemctl status kafka_exporter.v2.9.service
 sudo ss -tunpla | grep 9308
 curl http://localhost:9308/metrics
 ```
@@ -162,6 +162,67 @@ curl http://localhost:9308/metrics
 > - Kafka Exporter typically runs using flags in the unit file (no config file needed)
 > - Currently does not support KRaft mode (requires ZooKeeper)
 
+---
+
+## 4. Kafka Exporter (With Kraft mode)
+
+[![Kafka](https://img.shields.io/badge/Kafka-v3.0-blue?logo=apachekafka&logoColor=white)](https://kafka.apache.org/)
+[![Exporter](https://img.shields.io/badge/Exporter-v1.9.0-orange?logo=prometheus)](https://github.com/danielqsj/kafka_exporter)
+
+| Property | Value |
+|----------|-------|
+| **Default Port** | `9308` |
+| **Purpose** | Collects Kafka metrics: topics, partitions, consumer groups, lag |
+
+### Installation
+
+```bash
+# Download
+wget .....
+sudo tar .....
+
+# Create user
+sudo useradd -rs /sbin/nologin kafka_exporter
+
+# Install binary
+cd ......
+sudo mkdir -p /opt/kafka-exporter
+sudo mv kafka_exporter /opt/kafka-exporter
+sudo chown kafka_exporter. /opt/kafka-exporter/kafka_exporter
+sudo chmod 755 /opt/kafka-exporter/kafka_exporter
+
+# Create config directory
+sudo mkdir -p /etc/kafka-exporter
+sudo vim /etc/kafka-exporter/kafka-exporter.yml
+
+# Create systemd service
+sudo vim /usr/lib/systemd/system/kafka_exporter.v3.0.service
+# Debian: /lib/systemd/system/kafka_exporter.v3.0.service
+
+# Firewall
+sudo firewall-cmd --add-port=9308/tcp --permanent
+sudo firewall-cmd --reload
+
+# Enable service
+sudo systemctl daemon-reload
+sudo systemctl enable --now kafka_exporter.v3.0.service
+```
+
+### Verification
+
+```bash
+sudo systemctl status kafka_exporter.v3.0.service
+sudo ss -tunpla | grep 9308
+curl http://localhost:9308/metrics
+```
+
+### Resources
+
+| Type | Link |
+|------|------|
+| **Metrics Endpoint** | `http://localhost:9308/metrics` |
+| **Grafana Dashboard** | ..... |
+| **Repository** | ..... |
 
 ---
 
@@ -172,7 +233,9 @@ curl http://localhost:9308/metrics
 | PostgreSQL | `postgres_exporter.yml` | `/etc/postgres_exporter/` | `/etc/postgres_exporter/` |
 | PostgreSQL | `postgre_exporter.service` | `/usr/lib/systemd/system/` | `/lib/systemd/system/` |
 | Windows | `windows_exporter.yml` | N/A | N/A |
-| Kafka | `kafka_exporter.service` | `/usr/lib/systemd/system/` | `/lib/systemd/system/` |
+| Kafka.v2.9 | `kafka_exporter.v2.9.service` | `/usr/lib/systemd/system/` | `/lib/systemd/system/` |
+| Kafka.v3.0 | `kafka_exporter.v3.0.service` | `/usr/lib/systemd/system/` | `/lib/systemd/system/` |
+| Kafka.v3.0 | `kafka-exporter.yml` | `/etc/kafka-exporter/` | `/etc/kafka-exporter/` |
 
 ---
 

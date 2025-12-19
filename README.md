@@ -101,7 +101,7 @@ curl http://localhost:9187/metrics
 
 ---
 
-## 3. Kafka Exporter
+## 3. Kafka Exporter (With ZooKeeper)
 
 [![Kafka](https://img.shields.io/badge/Kafka-v2.9-blue?logo=apachekafka&logoColor=white)](https://kafka.apache.org/)
 [![Exporter](https://img.shields.io/badge/Exporter-v1.9.0-orange?logo=prometheus)](https://github.com/danielqsj/kafka_exporter)

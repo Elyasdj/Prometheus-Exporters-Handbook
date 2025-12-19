@@ -1,0 +1,28 @@
+[Unit]
+Description=Kafka Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=kafka_exporter
+Group=kafka_exporter
+Type=simple
+Restart=on-failure
+RestartSec=5
+ExecStart=/usr/local/bin/kafka_exporter \
+  --kafka.server=192.168.1.5:9092 \
+  --kafka.server=192.168.1.6:9092 \
+  --kafka.server=192.168.1.7:9092 \
+  --kafka.server=192.168.1.8:9092 \
+  --kafka.server=192.168.1.9:9092 \
+  --web.telemetry-path=/metrics \
+  --web.listen-address=:9308 \
+  --sasl.enabled \
+  --sasl.mechanism=PLAIN \
+  --sasl.username=admin \
+  --sasl.password=admin \
+  --group.filter=.* \
+  --topic.filter=.*
+
+[Install]
+WantedBy=multi-user.target

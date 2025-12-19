@@ -1,0 +1,32 @@
+listen_address: ":9308"
+metrics_path: "/metrics"
+scrape_interval: "15s"
+log_level: "info"
+
+kafka:
+  brokers:
+    - "kafka1:9092"
+    - "kafka2:9092"
+    - "kafka3:9092"
+    - "kafka4:9092"
+    - "kafka5:9092"
+  client_id: "kafka-exporter"
+  version: "7.6.0"
+  metadata_refresh_interval: "60s"
+  keep_alive: "10s"
+  tls:
+    enabled: false
+  sasl:
+    enabled: false
+    mechanism: "plain"
+    username: ""
+    password: ""
+
+topic:
+  include: []
+  exclude:
+    - "^__.*"
+
+consumer_lag:
+  enabled: true
+  groups: []

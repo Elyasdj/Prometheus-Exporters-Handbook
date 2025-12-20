@@ -221,7 +221,7 @@ curl http://localhost:9308/metrics
 | Type | Link |
 |------|------|
 | **Metrics Endpoint** | `http://localhost:9308/metrics` |
-| **Grafana Dashboard** | ..... |
+| **Grafana Dashboard** | [Dashboard #selfmade](https://github.com/Elyasdj/Apache-Kafka-Dashboard-With-Kraft-mode) |
 | **Repository** | ..... |
 
 ---
